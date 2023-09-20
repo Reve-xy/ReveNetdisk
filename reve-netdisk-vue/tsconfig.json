@@ -1,0 +1,61 @@
+{
+  "compilerOptions": {
+//    指定ECMAScript目标版本 "ES3"（默认）
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    // 指定编译器使用的语言模块（默认为"ESNext"）
+    "module": "ESNext",
+    //TS需要引用的库
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    //忽略所有的声明文件（ *.d.ts）的类型检查
+    "skipLibCheck": true,
+
+    /* Bundler mode */
+    //模块解析策略。默认使用node的模块解析策略
+    "moduleResolution": "bundler",
+    //允许 TypeScript 文件使用特定于 TypeScript 的扩展名(如.ts、.mts或.tsx)相互导入
+    "allowImportingTsExtensions": true,
+    //允许导入扩展名为“.json”的模块
+    "resolveJsonModule": true,
+    //将每个文件作为单独的模块（与“ts.transpileModule”类似）。
+    "isolatedModules": true,
+    // 不输出文件,即编译后不会生成任何js文件
+    "noEmit": true,
+    //preserve模式,在preserve模式下生成代码中会保留JSX以供后续的转换操作使用
+    "jsx": "preserve",
+
+    /* Linting */
+    //启用所有严格类型检查选项
+    "strict": true,
+    "noImplicitAny":true,
+    "noImplicitThis": false,
+    // 若有未使用的局部变量则抛错
+    "noUnusedLocals": true,
+    // 检若有未使用的函数参数则抛错
+    "noUnusedParameters": true,
+    // 防止switch语句贯穿(即如果没有break语句后面不会执行)
+    "noFallthroughCasesInSwitch": true,
+    //配置路径
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["src/*"],
+      "_v/*": ["src/views/*"],
+      "_c/*": ["src/components/*"],
+      "_a/*": ["src/assets/*"],
+      "_r/*": ["src/request/*"],
+      "_public": ["public/*"]
+    }
+  },
+//  扫描的文件
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "Element-plus.d.ts",
+    "auto-imports.d.ts",
+    "node_modules/@vue/runtime-core/dist/runtime-core.d.ts",
+    "node_modules/@vue/runtime-core/dist/runtime-core.d.ts"
+  ],
+  "references": [{ "path": "./tsconfig.node.json" }]
+}

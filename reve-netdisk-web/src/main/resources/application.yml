@@ -1,0 +1,92 @@
+server:
+  port: 8989
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/ly_netdisk?characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+    username: root
+    password: ly2lym1314
+  redis:
+    database: 0
+    host: 192.168.205.130
+    port: 6379
+    password:
+  #设置上传文件大小，maxFileSize单个文件最大，maxRequestSize单次请求最大
+  servlet:
+    multipart:
+      max-file-size: 2MB
+      max-request-size: 5MB
+    #邮箱
+  mail:
+    host: smtp.qq.com
+    port: 465
+    username: y02_coder@qq.com
+    password: zplkycqayjtodcij
+    default-encoding: UTF-8
+    smtp:
+       ssl:
+          enable: true
+    properties:
+      mail:
+        smtp:
+          socketFactory:
+            port: 465
+            class: javax.net.ssl.SSLSocketFactory
+
+mybatis-plus:
+#  global-config:
+#    db-config:
+#      logic-delete-field: delFlag
+#      logic-delete-value: 1
+#      logic-not-delete-value: 0
+#      id-type: auto
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+rocketmq:
+  name-server: 192.168.205.130:9876
+  producer:
+    group: netdisk-group        # 生产者组别
+    send-message-timeout: 3000  # 消息发送的超时时间
+    retry-times-when-send-async-failed: 2  # 异步消息发送失败重试次数
+    max-message-size: 4194304       # 消息的最大长度
+
+logging:
+  level:
+    RocketmqClient: ERROR
+    io:
+      netty: ERROR
+
+# My Config
+reve:
+  # 验证码类型 math 数组计算 char 字符验证
+  captchaType: math
+  charCaptchaSize: abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789
+  captchaEnabled: false
+  #邮箱
+  subject: 【Rêve个人博客】
+  context: 【Reve个人博客】-验证码：
+  common: 此验证码用于验证您的身份，有效期5分钟，请勿告知他人。
+  captchaLength: 4
+
+# jwt配置
+jwt:
+  secret: Reve2002
+  expire: 72
+  header: Authorization
+
+oss:
+  cdn: http://rvb4ht0v9.hn-bkt.clouddn.com/
+  video-camera: ?vframe/jpg/offset/1/w/100/h/100
+  image-camera: ?imageView2/1/w/100/h/100
+  urlPrefix: http://up-z2.qiniup.com
+
+# minio 文件存储配置信息
+minio:
+  bucketName: reve-netdisk
+  endpoint: http://192.168.205.130:21611
+  accessKey: admin
+  secretKey: admin123
+  expiry: 1  #分片对象过期时间 单位（天）
+  breakpoint-time: 1 #断点续传有效时间，在redis存储任务的时间 单位（天）
+

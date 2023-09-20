@@ -1,0 +1,97 @@
+body {
+  height: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-family: Miscrosfot YaHei,Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
+  color: #8a8a8a;
+}
+
+label {
+  font-weight: 700;
+}
+
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+#app {
+  height: 100%;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+a:focus,
+a:active {
+  outline: none;
+}
+
+a,
+a:focus,
+a:hover {
+  cursor: pointer;
+  color: inherit;
+  text-decoration: none;
+}
+
+div:focus {
+  outline: none;
+}
+
+.clearfix {
+  &:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+  }
+}
+
+// main-container global css
+.app-container {
+  padding: 20px;
+}
+
+.text-ellip{
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis
+}
+
+.table-operation-btn{
+    margin-left: 15px;
+    .iconfont{
+      font-size: 13px;
+      margin-left: 10px;
+      color:#06a7ff;
+      cursor: pointer;
+    }
+    .iconfont::before{
+      margin-right: 3px;
+    }
+}
+
+.header_title_info{
+  font-size: 12px;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px 0px;
+  .name{
+    color: #03081a;
+    font-weight: 700;
+  }
+  .count{
+    color: #afb3bf;
+  }
+}
+
+.img-circle{
+  border-radius: 50%;
+}
